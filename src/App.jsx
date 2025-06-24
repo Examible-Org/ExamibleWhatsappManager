@@ -4,7 +4,7 @@ import CreatePassword from "./auth/CreatePassword";
 
 const routes = createBrowserRouter([
   { path: "/", element: <Dashboard /> },
-  { path: "createpassword", element: <CreatePassword /> },
+  { path: "create-password", element: <CreatePassword /> },
 ]);
 const App = () => {
   return (
