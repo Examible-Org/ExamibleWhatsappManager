@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./pages/jacob/kenz/lola/Dashboard";
-import CreatePassword from "./Auth/CreatePassword";
+import CreatePassword from "./auth/CreatePassword";
 
 const routes = createBrowserRouter([
   { path: "/", element: <Dashboard /> },
-  { path: "create-password", element: <CreatePassword /> },
+  { path: "createpassword", element: <CreatePassword /> },
 ]);
 const App = () => {
   return (
