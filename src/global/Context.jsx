@@ -1,7 +1,8 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
+import { useContext } from "react";
 
 export const userContext = createContext();
-export const useContext = () => useContext(userContext);
+export const useCustomhook = () => useContext(userContext);
 
 const userProvider = ({ children }) => {
   return <userContext.Provider value={{}}>{children}</userContext.Provider>;
