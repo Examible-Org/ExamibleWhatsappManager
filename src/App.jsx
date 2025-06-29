@@ -4,7 +4,7 @@ import CreatePassword from "./auth/CreatePassword";
 import Private from "./routes/Private";
 
 const routes = createBrowserRouter([
-  { path: "create-password", element: <CreatePassword /> },
+  { path: "create-password/:token", element: <CreatePassword /> },
   {
     element: <Private />,
     children: [{ path: "/", element: <Dashboard /> }],
