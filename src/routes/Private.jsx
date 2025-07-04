@@ -8,7 +8,7 @@ const Private = () => {
   const { userData } = useCustomhook();
   console.log(userData);
   // return userData ? <Dashboard /> : <CreatePassword />;
-  return <Notifications />;
+  return <Dashboard />;
 };
 
 export default Private;
