@@ -9,8 +9,10 @@ import refimage from "../../assets/public/referralpic.jpg";
 import prev from "../../assets/public/prev.svg";
 import next from "../../assets/public/next.svg";
 import { RxDoubleArrowRight } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const plan = ["Monthly", "Yearly", "Freemium"];
   const month = [
     "Jan",
@@ -210,7 +212,10 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-notify">
           <div className="notify-count">
-            <IoMdNotificationsOutline className="notification-icon" />
+            <IoMdNotificationsOutline
+              className="notification-icon"
+              onClick={() => navigate("/notifications")}
+            />
             <div className="notification-count"></div>
           </div>
           <div className="dashboard-info">
@@ -430,13 +435,15 @@ const Dashboard = () => {
         <div className="right-description">
           <div className="text-container">
             <p>
-              Track your referral progress and rewards all in one place. Share <br />
-              your unique referral code with <br /> friends preparing for {" "}
-               <span className="highlight">JAMB</span> and earn points each time someone <br /> signs up and
-              start learning. The <br /> more you refer, the more you earn from bonus <br />
+              Track your referral progress and rewards all in one place. Share{" "}
+              <br />
+              your unique referral code with <br /> friends preparing for{" "}
+              <span className="highlight">JAMB</span> and earn points each time
+              someone <br /> signs up and start learning. The <br /> more you
+              refer, the more you earn from bonus <br />
               quiz access <br />
-              <span className="highlight">Examiable</span> boosts. <br /> <br /> Start inviting now and help others
-              succeed while you grow!
+              <span className="highlight">Examiable</span> boosts. <br /> <br />{" "}
+              Start inviting now and help others succeed while you grow!
             </p>
           </div>
         </div>
