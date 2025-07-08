@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.notifications-main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: #f2edfe;
+}
+
+.notifications-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 20vh;
+  gap: 10px;
+  border-bottom: 1px solid #1e1e1e4d;
+  padding-inline: 15px;
+  padding-block: 18px;
+}
+
+.top-notifications-header {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notifications-header-title {
+  width: 99%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  & span {
+    color: #1e1e1e;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+.left-header {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.headertext {
+  color: #1e1e1e;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.right-header {
+  width: 50%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  & button {
+    width: 150px;
+    padding: 9px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: #9166f7;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: #fff;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+}
+.notifications-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+
+  & span {
+    width: 100%;
+    text-align: left;
+    color: #1e1e1e;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 10px;
+  }
+
+  .notification-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-block: 20px;
+    padding-inline: 25px;
+    border: 1px solid #804bf2;
+    border-radius: 10px;
+    cursor: pointer;
+
+    .notification-message {
+      color: #1e1e1e;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      overflow: hidden;
+    }
+
+    .notification-time {
+      color: #804bf2;
+      font-family: Inter;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .notifications-header {
+    height: 15vh;
+  }
+  .left-header {
+    width: 60%;
+  }
+  .headertext {
+    color: #1e1e1e;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .right-header {
+    width: 40%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    & button {
+      width: 110px;
+      padding: 9px 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background: #9166f7;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      color: #fff;
+      text-align: center;
+      font-family: Montserrat;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+  }
+  .notification-message {
+    color: #1e1e1e;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    overflow: hidden;
+  }
+}
