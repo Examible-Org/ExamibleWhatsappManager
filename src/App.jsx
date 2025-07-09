@@ -3,20 +3,14 @@ import Dashboard from "./pages/lola/Dashboard";
 import CreatePassword from "./auth/CreatePassword";
 import Private from "./routes/Private";
 import Notifications from "./pages/ben/Notifications";
-import MainHolder from "./routes/MainHolder";
 
 const routes = createBrowserRouter([
   { path: "create-password/:token", element: <CreatePassword /> },
   {
     element: <Private />,
     children: [
-      {
-        element: <MainHolder />,
-        children: [
-          { path: "/", element: <Dashboard /> },
-          { path: "/notifications", element: <Notifications /> },
-        ],
-      },
+      { path: "/", element: <Dashboard /> },
+      { path: "notifications", element: <Notifications /> },
     ],
   },
 ]);

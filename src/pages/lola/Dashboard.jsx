@@ -282,35 +282,35 @@ const Dashboard = () => {
           <div className="dropdown-container2">
             <span className="plan-text">Month</span>
             <div className="plan-div">
-              <div className="dropdown-container2">
-                <div
-                  className="dropdown-button"
-                  onClick={() => togledropdown("month")}
-                >
-                  <span className="plan-selected">
-                    {selectedMonth === "All" ? "Select Month" : selectedMonth}
-                  </span>
-                  {activeDropdown === "month" ? (
-                    <MdOutlineKeyboardArrowUp />
-                  ) : (
-                    <MdOutlineKeyboardArrowDown />
-                  )}
-                </div>
-                {activeDropdown === "month" && (
-                  <ul className="dropdown-list2">
-                    {month.map((item, index) => (
-                      <li
-                        key={index}
-                        onClick={() => {
-                          setSelectedMonth(item), setActiveDropdown(null);
-                        }}
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+              {/* <div className="dropdown-container2"> */}
+              <div
+                className="dropdown-button"
+                onClick={() => togledropdown("month")}
+              >
+                <span className="plan-selected">
+                  {selectedMonth === "All" ? "Select Month" : selectedMonth}
+                </span>
+                {activeDropdown === "month" ? (
+                  <MdOutlineKeyboardArrowUp />
+                ) : (
+                  <MdOutlineKeyboardArrowDown />
                 )}
               </div>
+              {activeDropdown === "month" && (
+                <ul className="dropdown-list2">
+                  {month.map((item, index) => (
+                    <li
+                      key={index}
+                      onClick={() => {
+                        setSelectedMonth(item), setActiveDropdown(null);
+                      }}
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {/* </div> */}
             </div>
           </div>
         </div>
@@ -347,6 +347,14 @@ const Dashboard = () => {
                           : referral.plan === "Freemium"
                           ? "#D9CAFA"
                           : "transparent",
+                      color:
+                        referral.plan === "Yearly"
+                          ? "#fff"
+                          : referral.plan === "Monthly"
+                          ? "#000"
+                          : referral.plan === "Freemium"
+                          ? "#000"
+                          : "#000",
                     }}
                   >
                     {referral.plan}
