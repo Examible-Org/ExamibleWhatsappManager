@@ -1,0 +1,23 @@
+.left {
+  height: 100%;
+  width: 42%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 500px;
+    width: fit-content;
+  }
+
+  footer {
+    position: absolute;
+    left: 26px;
+    bottom: 26px;
+  }
+
+  @media screen and (max-width: 850px) {
+    display: none;
+  }
+}
