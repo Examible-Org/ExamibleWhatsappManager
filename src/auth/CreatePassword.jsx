@@ -1,8 +1,11 @@
 import styles from "../styles/createPassword.module.css";
-import LockImg from "../assets/public/createPasswordImg.png";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
+import LeftOnboarding from "../components/LeftOnboarding";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const CreatePassword = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +17,9 @@ const CreatePassword = () => {
     newPassword: "",
     confirmPassword: "",
   });
+  const [loading, setLoading] = useState(false);
+  const { token } = useParams();
+  const nav = useNavigate();
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -56,7 +62,7 @@ const CreatePassword = () => {
     setErrorMessage((prev) => ({ ...prev, [name]: error }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (
       errorMessage.confirmPassword ||
@@ -66,26 +72,28 @@ const CreatePassword = () => {
     ) {
       return;
     }
-    console.log("run api calls");
+    setLoading(true);
+    try {
+      const res = await axios.post(
+        `https://www.server.examible.com/api/v1/ambassador-password-create/${token}`,
+        passwords
+      );
+      if (res.status === 200) {
+        toast.success("Ambassador account setup successfully");
+        setTimeout(() => {
+          window.location.href = "https://www.examible.com/login";
+        }, 4000);
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.left}>
-        <img src={LockImg} alt="Create Password" />
-        <footer>
-          <svg
-            width="57"
-            height="25"
-            viewBox="0 0 57 25"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12.5" cy="12.5" r="12.5" fill="#F2AE30" />
-            <circle cx="28.5" cy="12.5" r="12.5" fill="#F2AE30" />
-            <circle cx="44.5" cy="12.5" r="12.5" fill="#F2AE30" />
-          </svg>
-        </footer>
-      </div>
+      <LeftOnboarding />
       <div className={styles.right}>
         <div className={styles.firstSmallCircle}></div>
         <div className={styles.secondSmallCircle}></div>
@@ -106,6 +114,7 @@ const CreatePassword = () => {
                   placeholder="New password"
                   name="newPassword"
                   onChange={handleOnchange}
+                  required
                 />
                 <nav>
                   {showPassword ? (
@@ -133,6 +142,7 @@ const CreatePassword = () => {
                   placeholder="Confirm password"
                   name="confirmPassword"
                   onChange={handleOnchange}
+                  required
                 />
                 <nav>
                   {showPassword ? (
@@ -153,7 +163,7 @@ const CreatePassword = () => {
               <small>{errorMessage.confirmPassword}</small>
             </section>
           </main>
-          <button>Done</button>
+          <button disabled={loading}>{loading ? "Loading..." : "Done"}</button>
         </form>
       </div>
     </div>
